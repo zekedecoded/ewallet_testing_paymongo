@@ -1,0 +1,12 @@
+<?php // includes/footer.php ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<?php if (!empty($extraScripts)): ?>
+  <?php foreach ($extraScripts as $src): ?>
+    <script src="<?= $src ?>"></script>
+  <?php endforeach; ?>
+<?php endif; ?>
+<?php if (!empty($inlineScript)): ?>
+  <script><?= $inlineScript ?></script>
+<?php endif; ?>
+</body>
+</html>

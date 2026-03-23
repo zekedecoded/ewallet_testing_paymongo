@@ -1,0 +1,616 @@
+/* ================================================================
+   GJC EduPay — app.css  v4.0
+   EXACT match to gendejesus.edu.ph screenshot
+   Navbar: amber-yellow #f0a500 bg, dark green text
+   Primary: forest green #1e5c1e / #2d6a2d
+   Hero gradient: yellow → dark green (top to bottom)
+   Fonts: Poppins + Nunito
+   ================================================================ */
+
+:root {
+  /* ── GJC Exact Colors from screenshot ── */
+  --gjc-yellow:      #f0a500;   /* navbar background */
+  --gjc-yellow-lt:   #f5bc30;   /* lighter yellow */
+  --gjc-yellow-pale: #fef9e7;   /* very pale yellow bg */
+  --gjc-yellow-bg:   #fffbf0;
+
+  --gjc-green:       #1e5c1e;   /* primary dark forest green */
+  --gjc-green-dark:  #143d14;   /* even darker green */
+  --gjc-green-xdark: #0d280d;   /* deepest green */
+  --gjc-green-mid:   #2d6a2d;   /* mid green */
+  --gjc-green-light: #3a7d3a;   /* lighter green */
+  --gjc-green-pale:  #e8f5e8;   /* very pale green bg */
+
+  /* ── UI Surfaces ── */
+  --ep-bg:       #f5f7f5;       /* slight green tint on page bg */
+  --ep-surface:  #ffffff;
+  --ep-surface2: #f0f5f0;
+  --ep-border:   #d4e0d4;
+  --ep-border2:  #b8ccb8;
+
+  /* ── Text ── */
+  --ep-text:     #1a2e1a;
+  --ep-muted:    #4a6b4a;
+  --ep-subtle:   #7a9a7a;
+
+  /* ── Status ── */
+  --ep-success:  #16a34a;
+  --ep-danger:   #dc2626;
+  --ep-warning:  #d97706;
+  --ep-info:     #2563eb;
+
+  /* ── Layout ── */
+  --ep-radius:    16px;
+  --ep-radius-sm: 10px;
+  --ep-shadow:    0 2px 12px rgba(30,92,30,.10);
+  --ep-shadow-md: 0 4px 24px rgba(30,92,30,.15);
+  --ep-shadow-lg: 0 8px 48px rgba(30,92,30,.20);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--ep-bg);
+  color: var(--ep-text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4,h5,h6,.ep-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--gjc-green);
+  line-height: 1.3;
+}
+
+code {
+  font-size: .88em;
+  background: var(--gjc-green-pale);
+  color: var(--gjc-green);
+  padding: .1em .4em;
+  border-radius: 4px;
+}
+
+/* ================================================================
+   NAVBAR — yellow bar with dark green text (exact GJC match)
+   ================================================================ */
+.ep-navbar {
+  background: var(--gjc-yellow);
+  border-bottom: 3px solid var(--gjc-green);
+  padding: .6rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(30,92,30,.20);
+}
+
+.ep-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+
+/* Logo badge — green circle on yellow, like their roundel */
+.ep-logo-icon {
+  width: 40px; height: 40px;
+  background: var(--gjc-green);
+  color: var(--gjc-yellow);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: .75rem;
+  letter-spacing: -.02em;
+  box-shadow: 0 2px 8px rgba(30,92,30,.3);
+  flex-shrink: 0;
+  border: 2px solid var(--gjc-green-dark);
+}
+
+.ep-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gjc-green-dark);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.ep-logo-text strong { color: var(--gjc-green); font-weight: 900; }
+.ep-logo-sub {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  color: var(--gjc-green);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.ep-nav-avatar {
+  font-size: 1.15rem;
+  background: rgba(30,92,30,.12);
+  border: 1.5px solid rgba(30,92,30,.25);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: grid;
+  place-items: center;
+}
+.ep-nav-name { font-size: .82rem; color: var(--gjc-green-dark); font-weight: 600; }
+.ep-nav-role {
+  font-size: .65rem;
+  background: var(--gjc-green);
+  color: var(--gjc-yellow);
+  border-radius: 20px;
+  padding: .1rem .55rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.ep-nav-logout {
+  color: var(--gjc-green-dark);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color .2s;
+  opacity: .6;
+}
+.ep-nav-logout:hover { color: var(--gjc-green); opacity: 1; }
+
+/* ================================================================
+   PAGE LAYOUT
+   ================================================================ */
+.ep-page      { max-width: 480px;  margin: 0 auto; padding: 1.5rem 1rem 5rem; }
+.ep-page-wide { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem 5rem; }
+
+/* ================================================================
+   CARDS
+   ================================================================ */
+.ep-card {
+  background: var(--ep-surface);
+  border: 1px solid var(--ep-border);
+  border-radius: var(--ep-radius);
+  padding: 1.5rem;
+  box-shadow: var(--ep-shadow);
+  transition: box-shadow .2s;
+}
+.ep-card + .ep-card { margin-top: 1rem; }
+.ep-card:hover { box-shadow: var(--ep-shadow-md); }
+
+/* ================================================================
+   BALANCE HERO CARD — green→yellow gradient matching GJC hero
+   ================================================================ */
+.ep-balance-card {
+  background: linear-gradient(150deg, var(--gjc-green-xdark) 0%, var(--gjc-green) 50%, var(--gjc-green-mid) 100%);
+  border: none;
+  border-radius: var(--ep-radius);
+  padding: 1.75rem 1.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--ep-shadow-lg);
+}
+.ep-balance-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(240,165,0,.18);
+  pointer-events: none;
+}
+.ep-balance-card::after {
+  content: '';
+  position: absolute;
+  bottom: -25px; left: -25px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  pointer-events: none;
+}
+.ep-balance-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: .67rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--gjc-yellow-lt);
+  margin-bottom: .2rem;
+}
+.ep-balance-amount {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.9rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin: .15rem 0 .3rem;
+}
+.ep-balance-id {
+  font-size: .78rem;
+  color: rgba(255,255,255,.55);
+  font-family: 'Nunito', sans-serif;
+}
+.ep-balance-id strong { color: rgba(255,255,255,.85); }
+
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+.btn-ep {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: var(--ep-radius-sm);
+  padding: .65rem 1.4rem;
+  font-size: .88rem;
+  border: none;
+  transition: all .18s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+/* Yellow CTA — exact match to GJC's yellow nav/buttons */
+.btn-ep-primary {
+  background: var(--gjc-yellow);
+  color: var(--gjc-green-dark);
+}
+.btn-ep-primary:hover {
+  background: var(--gjc-yellow-lt);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(240,165,0,.40);
+  color: var(--gjc-green-dark);
+  text-decoration: none;
+}
+
+/* Green solid — matches GJC's #LetsGoNaSaGJC dark green button */
+.btn-ep-navy {
+  background: var(--gjc-green);
+  color: var(--gjc-yellow);
+  border: 2px solid var(--gjc-green-dark);
+}
+.btn-ep-navy:hover {
+  background: var(--gjc-green-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(30,92,30,.32);
+  color: var(--gjc-yellow);
+  text-decoration: none;
+}
+
+/* Ghost outline */
+.btn-ep-outline {
+  background: transparent;
+  border: 1.5px solid var(--ep-border2);
+  color: var(--gjc-green);
+}
+.btn-ep-outline:hover {
+  border-color: var(--gjc-green);
+  color: var(--gjc-green-dark);
+  background: var(--gjc-green-pale);
+  text-decoration: none;
+}
+
+.btn-ep-danger { background: var(--ep-danger); color: #fff; }
+.btn-ep-danger:hover { background: #b91c1c; color: #fff; text-decoration: none; }
+
+/* ================================================================
+   FORM INPUTS
+   ================================================================ */
+.ep-input {
+  background: var(--ep-surface);
+  border: 1.5px solid var(--ep-border);
+  border-radius: var(--ep-radius-sm);
+  color: var(--ep-text);
+  padding: .72rem 1rem;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: .95rem;
+  transition: border-color .18s, box-shadow .18s;
+  outline: none;
+}
+.ep-input:focus {
+  border-color: var(--gjc-green);
+  box-shadow: 0 0 0 3px rgba(30,92,30,.1);
+}
+.ep-input::placeholder { color: var(--ep-subtle); }
+
+.ep-label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--ep-muted);
+  margin-bottom: .4rem;
+}
+.ep-form-group { margin-bottom: 1.15rem; }
+
+/* ================================================================
+   ALERTS
+   ================================================================ */
+.ep-alert {
+  border-radius: var(--ep-radius-sm);
+  padding: .85rem 1rem;
+  font-size: .875rem;
+  border-left: 4px solid transparent;
+  font-family: 'Nunito', sans-serif;
+}
+.ep-alert-success { background: #f0fdf4; border-color: var(--ep-success); color: #14532d; }
+.ep-alert-danger  { background: #fef2f2; border-color: var(--ep-danger);  color: #7f1d1d; }
+.ep-alert-warning { background: var(--gjc-yellow-pale); border-color: var(--gjc-yellow); color: var(--gjc-green-dark); }
+.ep-alert-info    { background: var(--gjc-green-pale); border-color: var(--gjc-green-light); color: var(--gjc-green-dark); }
+
+/* ================================================================
+   TRANSACTION LIST
+   ================================================================ */
+.ep-txn-list { list-style: none; padding: 0; margin: 0; }
+.ep-txn-item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--ep-border);
+}
+.ep-txn-item:last-child { border-bottom: none; }
+.ep-txn-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.ep-txn-icon.debit  { background: #fff0f0; }
+.ep-txn-icon.credit { background: var(--gjc-green-pale); }
+.ep-txn-meta { flex: 1; min-width: 0; }
+.ep-txn-desc { font-size: .9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ep-txn-time { font-size: .73rem; color: var(--ep-subtle); margin-top: .05rem; }
+.ep-txn-amount { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: .95rem; white-space: nowrap; }
+.ep-txn-amount.debit  { color: var(--ep-danger); }
+.ep-txn-amount.credit { color: var(--ep-success); }
+
+/* ================================================================
+   QR DISPLAY
+   ================================================================ */
+.ep-qr-wrapper {
+  background: #fff;
+  border: 3px solid var(--gjc-green);
+  border-radius: var(--ep-radius);
+  padding: 1rem;
+  display: inline-block;
+  box-shadow: var(--ep-shadow-md);
+}
+.ep-qr-countdown {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--gjc-green);
+  text-align: center;
+}
+.ep-qr-countdown.urgent { color: var(--ep-danger) !important; animation: pulse .6s ease-in-out infinite alternate; }
+@keyframes pulse { from { opacity: 1; } to { opacity: .5; } }
+
+/* ================================================================
+   SCANNER
+   ================================================================ */
+#qr-reader { border-radius: var(--ep-radius) !important; overflow: hidden; border: 2px solid var(--ep-border) !important; }
+
+/* ================================================================
+   PAYMENT CONFIRM
+   ================================================================ */
+.ep-pay-breakdown {
+  background: var(--ep-surface2);
+  border: 1px solid var(--ep-border);
+  border-radius: var(--ep-radius-sm);
+  padding: 1rem 1.25rem;
+}
+.ep-pay-row { display: flex; justify-content: space-between; align-items: center; padding: .45rem 0; }
+.ep-pay-row + .ep-pay-row { border-top: 1px solid var(--ep-border); }
+.ep-pay-row.total .ep-pay-val { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--gjc-green); }
+.ep-pay-lbl { color: var(--ep-muted); font-size: .85rem; }
+.ep-pay-val { font-weight: 600; font-family: 'Poppins', sans-serif; }
+
+/* ================================================================
+   ADMIN TABLE — yellow header bar, green accent
+   ================================================================ */
+.ep-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.ep-table th {
+  font-family: 'Poppins', sans-serif;
+  font-size: .69rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--gjc-green-dark);
+  background: var(--gjc-yellow);
+  border-bottom: 2px solid var(--gjc-green);
+  padding: .7rem .85rem;
+  text-align: left;
+}
+.ep-table td { padding: .75rem .85rem; border-bottom: 1px solid var(--ep-border); vertical-align: middle; }
+.ep-table tr:last-child td { border-bottom: none; }
+.ep-table tr:hover td { background: var(--gjc-green-pale); transition: background .12s; }
+
+/* ================================================================
+   BADGES
+   ================================================================ */
+.ep-badge {
+  display: inline-block;
+  padding: .2rem .65rem;
+  border-radius: 20px;
+  font-size: .68rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.ep-badge-success { background: #dcfce7; color: #14532d; }
+.ep-badge-danger  { background: #fee2e2; color: #7f1d1d; }
+.ep-badge-warning { background: #fef9c3; color: #713f12; }
+.ep-badge-info    { background: var(--gjc-green-pale); color: var(--gjc-green-dark); }
+.ep-badge-navy    { background: var(--gjc-green); color: var(--gjc-yellow); }
+.ep-badge-gold    { background: var(--gjc-yellow); color: var(--gjc-green-dark); }
+
+/* ================================================================
+   LOGIN PAGE — yellow top, green bottom gradient (exact GJC hero)
+   ================================================================ */
+.ep-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(170deg,
+    var(--gjc-yellow) 0%,
+    #c8860a 18%,
+    var(--gjc-green-mid) 40%,
+    var(--gjc-green) 60%,
+    var(--gjc-green-xdark) 100%);
+}
+.ep-login-card {
+  width: 100%;
+  max-width: 410px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: 0 24px 80px rgba(13,40,13,.45);
+  border-top: 4px solid var(--gjc-yellow);
+}
+.ep-login-logo {
+  width: 68px; height: 68px;
+  background: var(--gjc-green);
+  color: var(--gjc-yellow);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  margin: 0 auto .8rem;
+  box-shadow: 0 6px 20px rgba(30,92,30,.35);
+  border: 3px solid var(--gjc-green-dark);
+}
+.ep-login-school {
+  font-family: 'Nunito', sans-serif;
+  font-size: .72rem;
+  color: var(--ep-muted);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+/* ================================================================
+   QUICK ACTION GRID
+   ================================================================ */
+.ep-quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.ep-quick-btn {
+  background: var(--ep-surface);
+  border: 1.5px solid var(--ep-border);
+  border-radius: var(--ep-radius);
+  padding: 1.15rem .75rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ep-text);
+  transition: all .18s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .45rem;
+}
+.ep-quick-btn:hover {
+  border-color: var(--gjc-yellow);
+  background: var(--gjc-yellow-pale);
+  color: var(--gjc-green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(240,165,0,.22);
+  text-decoration: none;
+}
+.ep-quick-btn .ep-quick-icon { font-size: 1.6rem; }
+.ep-quick-btn .ep-quick-label { font-family: 'Poppins', sans-serif; font-size: .78rem; font-weight: 600; color: var(--gjc-green); }
+
+/* ================================================================
+   SECTION HEADER — yellow bar with green text (matches GJC nav)
+   ================================================================ */
+.ep-section-header {
+  background: var(--gjc-yellow);
+  color: var(--gjc-green-dark);
+  padding: .65rem 1.25rem;
+  border-radius: var(--ep-radius) var(--ep-radius) 0 0;
+  margin: -1.5rem -1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border-bottom: 2px solid var(--gjc-green);
+}
+.ep-section-header h2,
+.ep-section-header h3 { color: var(--gjc-green-dark); margin: 0; font-size: .95rem; }
+.ep-section-header .ep-section-badge {
+  background: var(--gjc-green);
+  color: var(--gjc-yellow);
+  border-radius: 20px;
+  padding: .1rem .55rem;
+  font-size: .68rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+/* ================================================================
+   DIVIDER
+   ================================================================ */
+.ep-divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--gjc-yellow) 0%, var(--gjc-green-pale) 100%);
+  border: none;
+  border-radius: 2px;
+  margin: 1.25rem 0;
+  opacity: .8;
+}
+
+/* ================================================================
+   STAT CARDS — yellow top accent
+   ================================================================ */
+.ep-stat-card {
+  background: var(--ep-surface);
+  border: 1px solid var(--ep-border);
+  border-radius: var(--ep-radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--ep-shadow);
+  border-top: 3px solid var(--gjc-yellow);
+}
+.ep-stat-label { font-family: 'Poppins', sans-serif; font-size: .67rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--ep-muted); margin-bottom: .2rem; }
+.ep-stat-value { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--gjc-green); line-height: 1.1; }
+
+/* ================================================================
+   SPINNER
+   ================================================================ */
+.ep-spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--ep-border);
+  border-top-color: var(--gjc-green);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin: 1rem auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ep-footer-credit {
+  text-align: center;
+  font-size: .7rem;
+  color: rgba(255,255,255,.35);
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 420px) {
+  .ep-balance-amount { font-size: 2.3rem; }
+  .ep-page { padding: 1rem .75rem 5rem; }
+  .ep-card { padding: 1.15rem; }
+}
